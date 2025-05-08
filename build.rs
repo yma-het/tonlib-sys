@@ -5,12 +5,12 @@ use std::process::Command;
 use std::thread::available_parallelism;
 use std::{env, fs};
 
-const TON_MONOREPO_URL: &str = "https://github.com/ton-blockchain/ton";
-const TON_MONOREPO_REVISION: &str = "v2025.04";
+const TON_MONOREPO_URL: &str = "https://github.com/yma-het/ton.git";
+const TON_MONOREPO_REVISION: &str = "9d010a621a61759ea11ee0e39184acc23a115e20";
 const TON_MONOREPO_DIR: &str = "./ton";
 
 #[cfg(feature = "with_debug_info")]
-const CMAKE_BUILD_TYPE: &str = "RelWithDebInfo";
+const CMAKE_BUILD_TYPE: &str = "Debug";
 #[cfg(not(feature = "with_debug_info"))]
 const CMAKE_BUILD_TYPE: &str = "Release";
 
