@@ -113,6 +113,26 @@ extern "C" {
     ) -> *const std::os::raw::c_char;
 
     /**
+     * @brief Run get method with raw params
+     * @param len Length of params
+     * @param params_boc serialized params
+     * @param gas_limit Gas limit
+     * @return struct with two pointers
+     * - first pointer is buffer with result length and result
+     * result is serialized cell chat contains:
+     * result.code: i32
+     * result.gas_used: i64
+     * vm stack: ref
+     * - second pointer is buffer with VM log length and VM log
+     * VM log is null-terminated string
+     */
+    pub fn tvm_emulator_emulate_run_method_detailed(
+        len: u32,
+        params_boc: *const std::os::raw::c_char,
+        gas_limit: i64,
+    ) -> *const std::os::raw::c_char;
+
+    /**
      * @brief Send external message
      * @param tvm_emulator Pointer to TVM emulator
      * @param message_body_boc Base64 encoded BoC serialized message body cell.
